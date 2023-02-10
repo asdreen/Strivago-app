@@ -8,12 +8,6 @@ const accommodationSchema = {
       errorMessage: "Name is a mandatory field and must be a string/text",
     },
   },
-  host: {
-    in: ["body"],
-    isString: {
-      errorMessage: "Host is a mandatory field and must be a string/text",
-    },
-  },
   description: {
     in: ["body"],
     isString: {

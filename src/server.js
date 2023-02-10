@@ -15,11 +15,17 @@ import accommodationsRouter from "./api/accommodation/index.js";
 const server = express();
 const port = process.env.PORT || 3001;
 
+// ***************************** MIDDLEWARES ***************************
+
 server.use(cors());
 server.use(express.json());
 
+// ****************************** ENDPOINTS ****************************
+
 server.use("/users", usersRouter);
 server.use("/accommodations", accommodationsRouter);
+
+// *************************** ERROR HANDLERS **************************
 
 server.use(badRequestHandler);
 server.use(unauthorizedHandler);

@@ -18,7 +18,10 @@ accommodationsRouter.post(
   checkValidationResult,
   async (req, res, next) => {
     try {
-      const newAccommodation = new AccommodationsModel(req.body);
+      const newAccommodation = new AccommodationsModel({
+        ...req.body,
+        host: req.user._id,
+      });
       const { _id } = await newAccommodation.save();
 
       res.status(201).send({ _id });

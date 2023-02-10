@@ -143,7 +143,7 @@ usersRouter.get(
     try {
       const accommodations = await AccommodationsModel.find({
         host: req.user._id,
-      }).populate({ path: "host", select: "email" });
+      });
 
       if (accommodations) {
         res.send(accommodations);
